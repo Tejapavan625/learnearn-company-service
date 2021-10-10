@@ -11,9 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,23 +29,19 @@ import lombok.ToString;
 @Entity
 public class Trainer {
 	
-	private String trainerName;
 	@Id
-	@GeneratedValue(generator="trainer_gen",strategy=GenerationType.AUTO)
-	@SequenceGenerator(name="trainer_gen",sequenceName = "trainer_seq",initialValue = 1,allocationSize = 1)
+	@GeneratedValue(generator = "course_gen",strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "course_gen",sequenceName = "course_seq",initialValue = 501,allocationSize = 1)
 	private Integer trainerId;
-	private LocalDate startDate;
-	private LocalDate endDate;
-	
-	
+	private String trainerName;
 	
 	@Enumerated(EnumType.STRING)
-	@Column(length=9)
-	private PostAvailabilty availability;
+    @Column(length = 8)
+    private PostAvailability availability;
 	
 	@OneToOne
 	@JoinColumn(name="course_id")
-	private Course course;
+	Course course;
 	
 	
 	

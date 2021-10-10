@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 
+import com.learnearn.model.Batch;
 import com.learnearn.model.Company;
 import com.learnearn.model.PostPriority;
 import com.learnearn.model.PostStatus;
@@ -46,5 +47,32 @@ public interface ICompanyService {
 	List<Company> getByCourseStatusAndCompanyName(PostStatus status, String companyName);
 
 	List<Company> getByCourseStartDateAndCompanyStatus(LocalDateTime courseStartDate, String status);
+	Batch addBatch(Batch batch);
 
+	void updateBatch(Batch batch);
+
+	void deleteBatch(int batchId);
+	List<Batch> getAllBatch();
+
+	Batch getByBatchId(int batchId);
+
+	Batch getByBatchName(String batchName);
+
+	List<Batch> getBybatchOwner(String owner);
+
+	List<Batch> getBybatchStartDateAndEndDate(LocalDateTime startDate,LocalDateTime endDate);
+
+	List<Batch> getBybacthStatus( PostStatus status);
+
+	List<Batch> getBybatchPriority(PostPriority priority);
+
+	List<Batch> getByBatchNameCourseName(String batchName);
+	
+	List<Batch> getByBatchNameCourseStatus(String batchName,PostStatus status);
+	
+	List<Batch> getByBatchNameCoursePriority(String batchName,PostPriority priority);
+	
+	List<Batch> getByBatchNameCourseStartDate(String batchName,LocalDateTime startDate);
+	
+	List<Batch> getByBatchNameCourseOwner(String batchName,String owner);
 }

@@ -1,6 +1,6 @@
 package com.learnearn.model;
 
-public enum PostAvailabilty {
+public enum PostAvailability {
 	AVAILABLE,NOTAVAILABLE
 
 }
